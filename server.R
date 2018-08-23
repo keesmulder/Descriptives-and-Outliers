@@ -84,7 +84,10 @@ server <- function(input, output) {
       if(input$transform=="Calculate z-scores"){
         y=(data()-mean(data()))/sd(data())
               }
-    boxplot(y,xlab="x",ylab="", xlim =c(0,2) , ylim=c(-2,30), main = "Boxplot ", horizontal = TRUE)
+    boxplot(y,xlab="x",ylab="",
+            boxwex =  1.7,
+            xlim =c(0,2) , ylim=c(-2,30), main = "Boxplot ",
+            horizontal = TRUE)
 
        abline(v=mean(y),col="blue")
        abline(v=median(y), col="red")
