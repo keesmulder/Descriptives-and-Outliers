@@ -1,0 +1,13 @@
+name: Descriptives
+title: Descriptives
+username:
+account: utrecht-university
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 406175
+bundleId: 1550425
+url: https://utrecht-university.shinyapps.io/Descriptives/
+when: 1535024248.60117
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: README.md
