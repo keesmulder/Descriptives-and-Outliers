@@ -88,7 +88,7 @@ server <- function(input, output) {
             boxwex =  1.7,
             xlim =c(0,2) , ylim=c(-2,30), main = "Boxplot ",
             horizontal = TRUE)
-
+    rug(y)
        abline(v=mean(y),col="blue")
        abline(v=median(y), col="red")
 
