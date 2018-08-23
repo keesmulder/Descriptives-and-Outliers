@@ -23,27 +23,27 @@ ui <- dashboardPage(skin = "black",
                                      sidebarMenu(#menuItem("", tabName = "home", icon = icon("home")),
                                        menuItem("Descriptive Statistics", tabName = "tab1"),
                                        menuItem("Disclaimer", tabName = "Disclaimer"),
-                                       HTML("<br><br><br><br><br><br><br><br><br><br><br><br><br><br>"),
-                                       img(src= "logo.png", align = "left"),
-                                       HTML("<br><br><br><br><br><br><br>"),
-                                       div("Shiny app by",
+                                       HTML("<br><br><br><br><br>"),
+                                       div("- Shiny app by",
                                            a(href="https://www.uu.nl/staff/MMiocevic",
                                              target = "_blank",
                                              #"Milica Mio&#269;evi&#263;"),align="right", style = "font-size: 10pt"),
-                                             "Milica Miocevic"),align="right", style = "font-size: 10pt"),
+                                             "Milica Miocevic"),align="left", style = "font-size: 10pt"),
 
-                                       div("Base R code by",
+                                       div("- Base R code by",
                                            a(href="https://www.uu.nl/staff/mmiocevic",target="_blank",
                                              #"Milica Mio&#269;evi&#263;"),align="right", style = "font-size: 10pt"),
-                                             "Milica Miocevic"),align="right", style = "font-size: 10pt"),
+                                             "Milica Miocevic"),align="left", style = "font-size: 10pt"),
 
-                                       div("Base Layout by",
+                                       div("- Base Layout by",
                                            a(href="https://www.uu.nl/medewerkers/KMLek/0",target="_blank",
-                                             "Kimberley Lek"),align="right", style = "font-size: 10pt"),
+                                             "Kimberley Lek"),align="left", style = "font-size: 10pt"),
 
-                                       div("Shiny source files:",
+                                       div("- Shiny source files:",
                                            a(href="https://github.com/EducationalShinyUU/Descriptives_and_outliers_shiny",
-                                             target="_blank","GitHub"),align="right", style = "font-size: 10pt")
+                                             target="_blank","GitHub"),align="left", style = "font-size: 10pt"),
+                                       HTML("<br><br><br><br><br><br><br><br><br><br><br><br><br><br>"),
+                                       img(src= "logo.png", align = "bottom")
                                      ) #end sidebarMenu
                     ), #end dashboardsidebar
                     dashboardBody(
