@@ -122,25 +122,36 @@ ui <- dashboardPage(skin = "black",
                         tabItem(tabName = "tab1",
 
                                 title = "Descriptives and Outliers",
-                                plotOutput("plot1"),
+                                plotOutput("plot1", height = "250px"),
                                 hr(),
+                                box(width = 12,
 
                                  fluidRow(
-                                   column(6,
+                                   column(4,
                                        selectInput("samplesize", "Sample size:",
                                                    choices = c(10,30,100),
-                                                   multiple = FALSE),
-                                       radioButtons("transform", "Changes to the data:",
-                                                    c("None", "Add Outlier", "Add 5 points to each score",
-                                                      "Multiply all scores by 2", "Divide all scores by 2","Calculate z-scores"))),
+                                                   multiple = FALSE)
+                                       ),
+                                       column(8,
+                                              br(),
+                                              HTML('<div style="height: 6px;">&nbsp;</div>'),
+                                              actionButton("do_sample", "Draw sample")
+                                       )
 
-                                       column(6,
-                                              actionButton("do_sample", "Draw sample"), # find a way to put drop-down and button on same level
-                                              uiOutput("descriptives"))
-
-                                   ) # end fluidRow
+                                   ), # end fluidRow
+                                   # hr(),
+                                fluidRow(column(4,
+                                                radioButtons("transform", "Changes to the data:",
+                                                             c("None", "Add Outlier", "Add 5 points to each score",
+                                                               "Multiply all scores by 2", "Divide all scores by 2","Calculate z-scores"))
+                                                ),
+                                         column(5,
+                                                uiOutput("descriptives")
+                                                )
+                                ) # end fluidRow
+                                ) #end box
                                 ) # end tabItem (Descriptives tab)
 
-                                       ) # end tabItems
-                                    ) # end dashboardbody
-                                ) # end dashboardpage
+                        ) # end tabItems
+                      ) # end dashboardbody
+                    ) # end dashboardpage
