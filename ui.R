@@ -139,13 +139,14 @@ ui <- dashboardPage(skin = "black",
                                        )
 
                                    ), # end fluidRow
-                                   # hr(),
+                                   hr(),
                                 fluidRow(column(4,
                                                 radioButtons("transform", "Changes to the data:",
                                                              c("None", "Add Outlier", "Add 5 points to each score",
                                                                "Multiply all scores by 2", "Divide all scores by 2","Calculate z-scores"))
                                                 ),
                                          column(5,
+                                              strong("Descriptive statistics:"),
                                                 uiOutput("descriptives")
                                                 )
                                 ) # end fluidRow
