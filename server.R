@@ -15,9 +15,6 @@
 
 
 
-
-
-
 # Loading libraries
 library(shiny)
 library(stringr)
@@ -62,7 +59,7 @@ server <- function(input, output) {
 
 # The user needs to click on the action button labeled "Draw Sample" for the plot and descriptives to appear
   data<-eventReactive(input$do_sample,
-                      {rnorm(input$samplesize, 7,3)})
+                      {abs(rnorm(input$samplesize, 7,3))})
 # Draws boxplot in the first row of the app
     output$plot1 <- renderPlot({
 
