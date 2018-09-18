@@ -136,8 +136,6 @@ server <- function(input, output) {
 
     names<-rbind("Mean","Standard Deviation","Variance",
                  "Minimum", "Q1", "Median", "Q3", "Maximum")
-    print(table.orig_y)
-    print(table.desc.trans.1)
 
     pad_n_digits <- function(x, n = 2) sprintf(paste0("%.", n, "f"), as.numeric(x))
 
@@ -165,7 +163,6 @@ server <- function(input, output) {
     table.desc.trans[1, c(1, nc)] <- paste(table.desc.trans[1, c(1, nc)], "#meancolor")
     table.desc.trans[6, c(1, nc)] <- paste(table.desc.trans[6, c(1, nc)], "#mediancolor")
 
-    print(table.desc.trans)
 
     # generate html table with pander package and markdown package
     htmltab <- markdownToHTML(
