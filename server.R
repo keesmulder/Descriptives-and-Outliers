@@ -98,6 +98,14 @@ server <- function(input, output) {
   output$descriptives <- renderUI({
     y=data()
 
+    orig_y <- y
+
+    # Original results
+    table.orig_y <- round(rbind(mean(orig_y), sd(orig_y), var(orig_y), min(orig_y), quantile(orig_y)[2],
+                                median(orig_y), quantile(orig_y)[4], max(orig_y)), 2)
+
+
+    # Transformations
     if(input$transform=="Add Outlier"){
 
       y_n<-sort(y, decreasing=TRUE)
@@ -128,8 +136,22 @@ server <- function(input, output) {
 
     names<-rbind("Mean","Standard Deviation","Variance",
                  "Minimum", "Q1", "Median", "Q3", "Maximum")
-    table.desc.trans<-cbind(names,table.desc.trans.1)
-    colnames(table.desc.trans)<-c(" ", " ")
+    print(table.orig_y)
+    print(table.desc.trans.1)
+
+    pad_n_digits <- function(x, n = 2) sprintf(paste0("%.", n, "f"), as.numeric(x))
+
+    if (input$transform=="None") {
+      table.desc.trans <-cbind(names, pad_n_digits(table.orig_y))
+      colnames(table.desc.trans)<-c(" ", "Original data")
+
+    } else {
+      table.desc.trans <-cbind(names, pad_n_digits(table.orig_y), pad_n_digits(table.desc.trans.1))
+      colnames(table.desc.trans)<-c(" ", "Original data", "Changed data" )
+    }
+
+
+
 
 
     # This part of the code adds colors to some rows.
@@ -139,8 +161,9 @@ server <- function(input, output) {
     # example data frame
     # add the tag inside the cells
 
-    table.desc.trans[1, ] <- paste(table.desc.trans[1, ], "#meancolor")
-    table.desc.trans[6, ] <- paste(table.desc.trans[6, ], "#mediancolor")
+    nc <- ncol(table.desc.trans)
+    table.desc.trans[1, c(1, nc)] <- paste(table.desc.trans[1, c(1, nc)], "#meancolor")
+    table.desc.trans[6, c(1, nc)] <- paste(table.desc.trans[6, c(1, nc)], "#mediancolor")
 
     print(table.desc.trans)
 
